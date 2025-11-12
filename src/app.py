@@ -76,7 +76,7 @@ vec, model = load_models()
 mode = st.radio("Choose mode", ["Single text", "Upload CSV"])
 
 if mode == "Single text":
-    text = st.text_area("Paste article or sentence:")git add .
+    text = st.text_area("Paste article or sentence:")
 
     if st.button("Predict"):
         if not text.strip():
