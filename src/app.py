@@ -1,3 +1,15 @@
+# ----- production load_models (put this at top of src/app.py) -----
+import os
+import joblib
+import streamlit as st
+
+@st.cache_resource
+def load_models():
+    model_dir = os.path.join(os.path.dirname(__file__), "..", "models")
+    vec = joblib.load(os.path.join(model_dir, "vectorizer.joblib"))
+    model = joblib.load(os.path.join(model_dir, "model.joblib"))
+    return vec, model
+# -------------------------------------------------------------------
 # ---- DEBUG-ENABLED app.py top (paste over the top of your current file) ----
 import os
 import joblib
